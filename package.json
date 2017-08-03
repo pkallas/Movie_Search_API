@@ -4,9 +4,7 @@
   "description": "Get search results from imdb",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install body-parser express request request-promise --save",
-    "run": "npm install mocha chai --save-dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "pkallas",
   "license": "ISC",
@@ -21,3 +19,4 @@
     "mocha": "^3.5.0"
   }
 }
+s
