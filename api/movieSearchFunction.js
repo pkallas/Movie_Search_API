@@ -2,12 +2,12 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 const qs = require('querystring');
 // Change input to be the request sent in http, rather than in node
-const input = process.argv[2];
+const input = userinput;
 // Set the query of imdb to take user input to search for the titles they want
 // querystring will format the query, making sure to format reserved characters properly
 const imdbPath = qs.stringify(
     {ref_ : 'nv_sr_fn',
-    q: input,
+    q: 'findingnemo',
     s: 'tt'});
 // This object specifies the path to request, and then passes the successful response to cheerio
 const imdbMoviesPage = {
@@ -15,7 +15,7 @@ const imdbMoviesPage = {
   transform: (body) => cheerio.load(body)
 };
 
-rp(imdbMoviesPage)
+const movieSearchFunction = rp(imdbMoviesPage)
 // After successfully receiving the body, use cheerio to only get the information desired, in this case,
 // the result of searching imdb for titles
   .then(($) => {
@@ -28,3 +28,5 @@ rp(imdbMoviesPage)
     console.log('Problem loading imdb!');
     throw err
   });
+
+module.exports = movieSearchFunction;
