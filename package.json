@@ -1,0 +1,23 @@
+{
+  "name": "movie_search_api",
+  "version": "1.0.0",
+  "description": "Get search results from imdb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install body-parser express request request-promise --save",
+    "run": "npm install mocha chai --save-dev"
+  },
+  "author": "pkallas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0"
+  }
+}
