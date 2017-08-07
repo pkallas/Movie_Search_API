@@ -28,13 +28,16 @@ router.get('/search/:query', (req, res) => {
   // After successfully receiving the body, use cheerio to only get the information desired, in this case,
   // the result of searching imdb for titles
     .then(($) => {
-      // console.log('After promise from imdb resolved')
       let searchResults = $('.findSection')
         .first()
         .find('.result_text')
         .map((index, element) => $(element).text()).toArray();
-      // console.log(titles + 'These are the titles')
-      res.send(searchResults)
+      // Put search results into an object
+      let searchResultsObj = {"movies": searchResults};
+      // Make search results a JSON object
+        JSON.stringify(searchResultsObj);
+      // Send the result of the search to the user
+      res.send(searchResultsObj)
     })
   // If imdb couldn't be loaded into cheerio successfully, log and throw the error
     .catch((err) => {
