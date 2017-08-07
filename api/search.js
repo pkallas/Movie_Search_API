@@ -33,11 +33,10 @@ router.get('/search/:query', (req, res) => {
         .find('.result_text')
         .map((index, element) => $(element).text()).toArray();
       // Put search results into an object
-      let searchResultsObj = {"movies": searchResults};
+      let searchResultsObj = {movies: searchResults};
       // Make search results a JSON object
-        JSON.stringify(searchResultsObj);
       // Send the result of the search to the user
-      res.send(searchResultsObj)
+      res.json(searchResultsObj)
     })
   // If imdb couldn't be loaded into cheerio successfully, log and throw the error
     .catch((err) => {
